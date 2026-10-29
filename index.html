@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="warm">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Digital Saathi (डिजिटल साथी) — Senior Smartphone & Safety Platform</title>
+  <meta name="description" content="A beautiful Indian vintage scrapbook digital literacy platform for elderly citizens. Master smartphones, safe UPI payments, scam detection, and 8 playable 2D games.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- =========================================================================
+       SCRAPBOOK SITE HEADER
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="top-bar">
+      
+      <!-- Brand & Postage Stamp Emblem -->
+      <div class="brand-wrapper">
+        <div class="brand-postage-stamp" aria-label="Indian Postage Stamp Emblem">🌱</div>
+        <div class="brand-details">
+          <h1 id="txtBrandTitle">Digital Saathi <span class="brand-tag-pill">डिजिटल साथी</span></h1>
+          <p id="txtBrandSubtitle">Your Friendly Smartphone & Safety Companion</p>
+        </div>
+      </div>
+
+      <!-- Language Switcher -->
+      <div class="language-selector" aria-label="Language Selector">
+        <button class="lang-btn active" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="hi">हिंदी</button>
+        <button class="lang-btn" data-lang="mr">मराठी</button>
+      </div>
+
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav-bar" aria-label="Main Navigation">
+      <div class="nav-tabs">
+        <button class="nav-item-btn active" data-tab="tab-home" id="navHome">
+          <span>🏠</span> <span data-i18n="navHome">Home</span>
+        </button>
+        <button class="nav-item-btn" data-tab="tab-games" id="navGames">
+          <span>🎮</span> <span data-i18n="navGames">Mini Games</span>
+        </button>
+        <button class="nav-item-btn" data-tab="tab-scam" id="navScam">
+          <span>🕵️</span> <span data-i18n="navScam">Scam Detective</span>
+        </button>
+        <button class="nav-item-btn" data-tab="tab-upi" id="navUpi">
+          <span>💳</span> <span data-i18n="navUpi">Safe UPI Simulator</span>
+        </button>
+        <button class="nav-item-btn" data-tab="tab-knowledge" id="navKnowledge">
+          <span>📚</span> <span data-i18n="navKnowledge">Knowledge Centre</span>
+        </button>
+        <button class="nav-item-btn" data-tab="tab-progress" id="navProgress">
+          <span>📊</span> <span data-i18n="navProgress">My Progress</span>
+        </button>
+        <button class="nav-item-btn" data-tab="tab-help" id="navHelp">
+          <span>🆘</span> <span data-i18n="navHelp">Help & Helplines</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================================
+       PERSISTENT ACCESSIBILITY FLOATING ASSISTANT
+       ========================================================================= -->
+  <aside class="acc-floating-panel" aria-label="Accessibility Assistant">
+    <button class="acc-mini-btn" id="btnFontDec" title="Decrease Text Size">A-</button>
+    <button class="acc-mini-btn" id="btnFontInc" title="Increase Text Size">A+</button>
+    <button class="acc-mini-btn" id="btnCycleTheme" title="Cycle Contrast Themes">🎨 <span id="themeLabel">Warm</span></button>
+    <button class="acc-mini-btn" id="btnToggleSpeech" title="Read page text aloud">🔊 <span id="speechLabel">Read</span></button>
+    <button class="acc-mini-btn" id="btnStopSpeech" title="Stop speech reading">⏹️</button>
+    <button class="acc-mini-btn" id="btnToggleChime" title="Toggle audio click chimes">🔔</button>
+  </aside>
+
+  <!-- =========================================================================
+       MAIN CONTAINER
+       ========================================================================= -->
+  <main class="main-wrapper">
+
+    <!-- =======================================================================
+         VIEW 1: HOME PAGE
+         ======================================================================= -->
+    <section id="tab-home" class="view-section active">
+      
+      <!-- Welcoming Hero Scrapbook Banner -->
+      <div class="hero-scrapbook-banner">
+        <h2 id="txtWelcomeGreeting">Namaste! Welcome to Digital Saathi 📖</h2>
+        <p id="txtWelcomeSub" style="font-size: 1.15rem; color: var(--ink-muted); margin-bottom: 22px; max-width: 800px;">
+          A calm, beautiful scrapbook designed to help you master smartphones, practice digital payments safely, and stay protected from online frauds.
+        </p>
+
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <button id="btnStartLearningNow" class="btn-terracotta">
+            <span>🚀</span> <span data-i18n="startLearning">Start Learning Now</span>
+          </button>
+          <button id="btnReadHomeAloud" class="btn-parchment">
+            <span>🔊</span> <span data-i18n="readAloud">Read Aloud</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Suggested Daily Activity Card -->
+      <div class="scrapbook-card" style="border-left: 6px solid var(--antique-gold);">
+        <div class="card-heading-row">
+          <div>
+            <span style="font-size: 0.85rem; font-weight: 800; color: var(--antique-gold-dark); text-transform: uppercase;">
+              💡 <span data-i18n="dailyActivityTitle">Today's Suggested Activity</span>
+            </span>
+            <h3 style="font-size: 1.35rem; margin-top: 4px;" data-i18n="dailyActivityDesc">
+              Practice recognizing a fake lottery SMS in the Scam Detective — take 2 minutes today!
+            </h3>
+          </div>
+          <button id="btnGoDailyActivity" class="btn-teal">
+            <span data-i18n="startDailyBtn">Try Today's Activity</span> →
+          </button>
+        </div>
+      </div>
+
+      <!-- 6 Portal Cards Grid -->
+      <div class="feature-cards-grid">
+        
+        <div class="portal-nav-card" data-nav-target="tab-games">
+          <div class="portal-card-icon" style="background: #fef3c7;">🎮</div>
+          <div>
+            <h4 data-i18n="cardGamesTitle">8 Fun Mini Games</h4>
+            <p data-i18n="cardGamesDesc">Play gentle 2D games like Safety Snake, Catch the Safe Dots, and Memory Match.</p>
+          </div>
+        </div>
+
+        <div class="portal-nav-card" data-nav-target="tab-scam">
+          <div class="portal-card-icon" style="background: #fee2e2;">🕵️</div>
+          <div>
+            <h4 data-i18n="cardScamTitle">Scam Detective</h4>
+            <p data-i18n="cardScamDesc">Learn to spot suspicious SMS, fake KYC calls, and lottery scams with realistic examples.</p>
+          </div>
+        </div>
+
+        <div class="portal-nav-card" data-nav-target="tab-upi">
+          <div class="portal-card-icon" style="background: #e0f2fe;">💳</div>
+          <div>
+            <h4 data-i18n="cardUpiTitle">Safe UPI Practice</h4>
+            <p data-i18n="cardUpiDesc">Zero-risk mock payment simulator. Practice QR codes and learn why PIN is NEVER needed to receive money.</p>
+          </div>
+        </div>
+
+        <div class="portal-nav-card" data-nav-target="tab-knowledge">
+          <div class="portal-card-icon" style="background: #e4f3f3;">📚</div>
+          <div>
+            <h4 data-i18n="cardKnowledgeTitle">Knowledge Centre</h4>
+            <p data-i18n="cardKnowledgeDesc">Step-by-step guides for WhatsApp, bank security, passwords, and smartphone settings.</p>
+          </div>
+        </div>
+
+        <div class="portal-nav-card" data-nav-target="tab-progress">
+          <div class="portal-card-icon" style="background: #fdf5e7;">📊</div>
+          <div>
+            <h4 data-i18n="cardProgressTitle">My Progress</h4>
+            <p data-i18n="cardProgressDesc">See badges earned, games won, and safe lessons completed at your own comfortable pace.</p>
+          </div>
+        </div>
+
+        <div class="portal-nav-card" data-nav-target="tab-help">
+          <div class="portal-card-icon" style="background: #fae8e3;">🆘</div>
+          <div>
+            <h4>Emergency Helplines (1930)</h4>
+            <p>Direct contacts for India's National Cybercrime Portal and emergency assistance.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================================
+         VIEW 2: MINI 2D GAMES HUB (ALL 8 GAMES)
+         ======================================================================= -->
+    <section id="tab-games" class="view-section">
+      
+      <div class="scrapbook-card">
+        <div class="card-heading-row">
+          <div>
+            <h2 data-i18n="gamesHeaderTitle">Digital Saathi Mini Games Hub</h2>
+            <p data-i18n="gamesHeaderSubtitle">Small, lightweight 2D learning games designed for seniors. Play at your own speed with simple controls.</p>
+          </div>
+          <button id="btnBackToShelf" class="btn-parchment" style="display: none;">
+            <span data-i18n="btnBackToGames">← Back to Games Menu</span>
+          </button>
+        </div>
+
+        <!-- 8 Games Shelf Menu -->
+        <div class="games-shelf-grid" id="gamesShelfMenu">
+          
+          <!-- Game A Card -->
+          <div class="game-shelf-card">
+            <div>
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">🐍</div>
+              <h4 data-i18n="gameSnakeTitle">Game A: Digital Safety Snake</h4>
+              <p data-i18n="gameSnakeDesc">Guide the friendly snake to collect safe habits (Protect PIN, Verify Links, Keep OTP Secret).</p>
+            </div>
+            <button class="btn-terracotta btn-open-game" data-game="snake" data-i18n="btnPlayNow">Play Game</button>
+          </div>
+
+          <!-- Game B Card -->
+          <div class="game-shelf-card">
+            <div>
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">🧺</div>
+              <h4 data-i18n="gameDotsTitle">Game B: Catch the Safe Dots</h4>
+              <p data-i18n="gameDotsDesc">Catch verified senders and official apps; avoid suspicious links and unknown caller threats.</p>
+            </div>
+            <button class="btn-terracotta btn-open-game" data-game="dots" data-i18n="btnPlayNow">Play Game</button>
+          </div>
+
+          <!-- Game C Card -->
+          <div class="game-shelf-card">
+            <div>
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">⭕</div>
+              <h4 data-i18n="gameTttTitle">Game C: Digital Safety Tic-Tac-Toe</h4>
+              <p data-i18n="gameTttDesc">Answer a gentle safety question before making a move. Play against friendly Saathi AI or family.</p>
+            </div>
+            <button class="btn-terracotta btn-open-game" data-game="ttt" data-i18n="btnPlayNow">Play Game</button>
+          </div>
+
+          <!-- Game D Card -->
+          <div class="game-shelf-card">
+            <div>
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">🚩</div>
+              <h4 data-i18n="gameSpotTitle">Game D: Spot the Scam</h4>
+              <p data-i18n="gameSpotDesc">Examine realistic messages and tap the red flags like urgent threats and unknown links.</p>
+            </div>
+            <button class="btn-terracotta btn-open-game" data-game="spot" data-i18n="btnPlayNow">Play Game</button>
+          </div>
+
+          <!-- Game E Card -->
+          <div class="game-shelf-card">
+            <div>
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">🃏</div>
+              <h4 data-i18n="gameMemoryTitle">Game E: Digital Memory Match</h4>
+              <p data-i18n="gameMemoryDesc">Flip scrapbook cards to pair digital safety icons with their real meanings.</p>
+            </div>
+            <button class="btn-terracotta btn-open-game" data-game="memory" data-i18n="btnPlayNow">Play Game</button>
+          </div>
+
+          <!-- Game F Card -->
+          <div class="game-shelf-card">
+            <div>
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">⚖️</div>
+              <h4 data-i18n="gameSortTitle">Game F: Safe or Unsafe Sorting</h4>
+              <p data-i18n="gameSortDesc">Classify everyday phone situations into Safe or Unsafe boxes with clear explanations.</p>
+            </div>
+            <button class="btn-terracotta btn-open-game" data-game="sort" data-i18n="btnPlayNow">Play Game</button>
+          </div>
+
+          <!-- Game G Card -->
+          <div class="game-shelf-card">
+            <div>
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">❓</div>
+              <h4 data-i18n="gameQuizTitle">Game G: Digital Knowledge Quiz</h4>
+              <p data-i18n="gameQuizDesc">Friendly question-and-answer rounds about smartphone tips, cyber hygiene, and privacy.</p>
+            </div>
+            <button class="btn-terracotta btn-open-game" data-game="quiz" data-i18n="btnPlayNow">Play Game</button>
+          </div>
+
+          <!-- Game H Card -->
+          <div class="game-shelf-card">
+            <div>
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">📱</div>
+              <h4 data-i18n="gameSkillsTitle">Game H: Smartphone Skills Challenge</h4>
+              <p data-i18n="gameSkillsDesc">Practice everyday phone tasks on a mock phone screen: dial calls, open safe browsers, and block spam.</p>
+            </div>
+            <button class="btn-terracotta btn-open-game" data-game="skills" data-i18n="btnPlayNow">Play Game</button>
+          </div>
+
+        </div>
+
+        <!-- =================== ACTIVE GAME ARENAS =================== -->
+
+        <!-- STAGE A: SNAKE -->
+        <div id="stage-snake" class="game-active-stage">
+          <div class="card-heading-row">
+            <h3>🐍 Digital Safety Snake</h3>
+            <span id="snakeScore" style="font-size: 1.15rem; font-weight: 800; color: var(--terracotta);">Score: 0 | Best: 0</span>
+          </div>
+
+          <div class="game-canvas-wrapper">
+            <canvas id="snakeCanvas" width="360" height="360"></canvas>
+
+            <div id="snakeTipBox" style="background: var(--bg-subtle-sepia); border: 2px solid var(--bg-aged-border); border-radius: var(--radius-sm); padding: 14px 18px; width: 100%; max-width: 480px; text-align: center; font-size: 1rem;">
+              Use the arrow buttons below to collect safety habits!
+            </div>
+
+            <!-- On-Screen D-PAD for Touch & Seniors -->
+            <div class="dpad-container">
+              <div></div>
+              <button class="dpad-btn" id="dpadUp" aria-label="Up">⬆️</button>
+              <div></div>
+              <button class="dpad-btn" id="dpadLeft" aria-label="Left">⬅️</button>
+              <button class="dpad-btn" id="dpadDown" aria-label="Down">⬇️</button>
+              <button class="dpad-btn" id="dpadRight" aria-label="Right">➡️</button>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 14px;">
+              <button id="btnSnakeRestart" class="btn-terracotta">Restart Game</button>
+              <button id="btnSnakePause" class="btn-parchment">Pause / Resume</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE B: CATCH THE SAFE DOTS -->
+        <div id="stage-dots" class="game-active-stage">
+          <div class="card-heading-row">
+            <h3>🧺 Catch the Safe Dots</h3>
+            <div style="display: flex; gap: 16px;">
+              <span id="dotsScore" style="font-size: 1.15rem; font-weight: 800; color: var(--terracotta);">Score: 0</span>
+              <span id="dotsLives" style="font-size: 1.15rem; font-weight: 800;">Attempts: ❤️ ❤️ ❤️</span>
+            </div>
+          </div>
+
+          <div class="game-canvas-wrapper">
+            <canvas id="dotsCanvas" width="360" height="380"></canvas>
+
+            <div id="dotsFeedback" style="background: var(--bg-subtle-sepia); border: 2px solid var(--bg-aged-border); border-radius: var(--radius-sm); padding: 12px 16px; width: 100%; max-width: 480px; text-align: center; font-size: 0.95rem;">
+              Catch green safe items; avoid red scam traps!
+            </div>
+
+            <div style="display: flex; gap: 20px; margin-top: 10px;">
+              <button class="btn-parchment" id="btnBasketLeft" style="width: 120px; font-size: 1.3rem;">⬅️ Left</button>
+              <button class="btn-parchment" id="btnBasketRight" style="width: 120px; font-size: 1.3rem;">Right ➡️</button>
+            </div>
+
+            <div style="margin-top: 12px;">
+              <button id="btnDotsRestart" class="btn-terracotta">Restart Game</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE C: TIC-TAC-TOE -->
+        <div id="stage-ttt" class="game-active-stage">
+          <div class="card-heading-row">
+            <h3>⭕ Digital Safety Tic-Tac-Toe</h3>
+            <span id="tttScoreText" style="font-weight: 800; color: var(--terracotta);">You: 0 | Saathi AI: 0 | Draws: 0</span>
+          </div>
+
+          <div style="text-align: center; margin-bottom: 12px; font-size: 1.1rem; font-weight: 700;" id="tttStatus">
+            Your turn (X). Tap any box to answer a safety question!
+          </div>
+
+          <div class="ttt-grid" id="tttGridContainer"></div>
+
+          <div style="text-align: center; margin-top: 16px;">
+            <button id="btnTttReset" class="btn-parchment">Reset Board</button>
+          </div>
+        </div>
+
+        <!-- STAGE D: SPOT THE SCAM -->
+        <div id="stage-spot" class="game-active-stage">
+          <div id="spotScamContainer"></div>
+        </div>
+
+        <!-- STAGE E: MEMORY MATCH -->
+        <div id="stage-memory" class="game-active-stage">
+          <div class="card-heading-row">
+            <h3>🃏 Digital Memory Match</h3>
+            <span id="memoryScoreHUD" style="font-weight: 800; color: var(--teal-soft);">Matches: 0 / 6 | Moves: 0</span>
+          </div>
+          <p style="text-align: center; margin-bottom: 14px;">Flip cards to pair safety symbols with their definitions.</p>
+          <div class="memory-grid" id="memoryGridContainer"></div>
+          <div style="text-align: center; margin-top: 16px;">
+            <button id="btnResetMemory" class="btn-parchment">New Memory Game</button>
+          </div>
+        </div>
+
+        <!-- STAGE F: SORTING -->
+        <div id="stage-sort" class="game-active-stage">
+          <div class="card-heading-row">
+            <h3>⚖️ Safe or Unsafe Sorting</h3>
+            <span id="sortScoreHUD" style="font-weight: 800; color: var(--terracotta);">Score: 0</span>
+          </div>
+
+          <div class="scrapbook-card" style="text-align: center; border: 2px dashed var(--antique-gold); margin: 20px 0;" id="sortCardDisplay">
+            <!-- Action prompt inserted here -->
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+            <button id="btnChooseSafe" class="btn-teal" style="min-width: 180px; font-size: 1.2rem;">
+              🟢 SAFE PRACTICE
+            </button>
+            <button id="btnChooseUnsafe" class="btn-terracotta" style="min-width: 180px; font-size: 1.2rem;">
+              🔴 UNSAFE TRAP
+            </button>
+          </div>
+
+          <div id="sortFeedback" style="text-align: center; font-size: 1.05rem; min-height: 40px;"></div>
+        </div>
+
+        <!-- STAGE G: QUIZ -->
+        <div id="stage-quiz" class="game-active-stage">
+          <div class="card-heading-row">
+            <h3>❓ Digital Knowledge Quiz</h3>
+            <span id="quizScoreHUD" style="font-weight: 800; color: var(--terracotta);">Score: 0</span>
+          </div>
+
+          <div class="scrapbook-card" style="margin: 16px 0;">
+            <h4 id="quizQuestionText" style="font-size: 1.3rem; margin-bottom: 16px;">Loading question...</h4>
+            <div id="quizOptionsList"></div>
+            <div id="quizFeedbackBox" style="margin-top: 14px; font-size: 1.05rem; font-weight: 600;"></div>
+          </div>
+
+          <div style="text-align: right;">
+            <button id="btnQuizNext" class="btn-terracotta" style="display: none;">Next Question →</button>
+          </div>
+        </div>
+
+        <!-- STAGE H: SKILLS CHALLENGE -->
+        <div id="stage-skills" class="game-active-stage">
+          <div class="card-heading-row">
+            <h3>📱 Smartphone Skills Challenge</h3>
+          </div>
+          <div class="mock-phone-screen">
+            <div class="mock-phone-header">
+              <span style="font-weight: 800;">SIM 1 4G • 10:30 AM</span>
+              <span>🔋 85%</span>
+            </div>
+            <h4 id="skillsMissionText" style="font-size: 1.1rem; color: #1e293b; margin-bottom: 14px;"></h4>
+            <div id="skillsScreenContent"></div>
+            <div id="skillsFeedback" style="margin-top: 12px; font-size: 0.95rem; min-height: 30px;"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================================
+         VIEW 3: SCAM DETECTIVE
+         ======================================================================= -->
+    <section id="tab-scam" class="view-section">
+      <div class="scrapbook-card">
+        <div class="card-heading-row">
+          <div>
+            <h2 data-i18n="scamHeaderTitle">Scam Detective: Spot the Red Flags</h2>
+            <p data-i18n="scamSubtitle">Read the real-life situation below and decide whether it is Safe, Suspicious, or Fraudulent.</p>
+          </div>
+          <span style="font-size: 1.1rem; font-weight: 800; color: var(--terracotta);" id="scamScenarioCounter">Scenario 1 of 5</span>
+        </div>
+
+        <div id="scamMainDisplayArea">
+          <!-- Dynamic Scam Detective scenario rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =======================================================================
+         VIEW 4: SAFE UPI PRACTICE SIMULATOR (DEMO ONLY)
+         ======================================================================= -->
+    <section id="tab-upi" class="view-section">
+      <div class="scrapbook-card">
+        <div class="card-heading-row">
+          <div>
+            <h2 data-i18n="upiHeaderTitle">Safe UPI Practice Simulator</h2>
+            <div class="upi-stamp-badge" data-i18n="upiNoticeBanner">
+              DEMO ONLY — NO REAL MONEY. Strictly a safe educational simulator.
+            </div>
+          </div>
+        </div>
+
+        <!-- Golden Rule Alert Box -->
+        <div style="background: var(--terracotta-light); border: 2px solid var(--terracotta-border); border-radius: var(--radius-md); padding: 18px 22px; margin-bottom: 24px;">
+          <h3 style="color: var(--terracotta-dark); font-size: 1.25rem; display: flex; align-items: center; gap: 8px;">
+            <span>⭐</span> <span data-i18n="upiRuleNumberOne">GOLDEN RULE: You NEVER need to enter your UPI PIN to RECEIVE money!</span>
+          </h3>
+          <p style="color: #6c2311; font-size: 1rem; margin-top: 6px;">
+            If anyone asks you to scan a QR code or enter your 4-digit/6-digit secret PIN to "receive payment or lottery", it is ALWAYS a theft attempt.
+          </p>
+        </div>
+
+        <!-- Practice Drills Tabs -->
+        <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+          <button class="btn-parchment active" id="btnUpiDrillPay" data-drill="pay">
+            🛒 Pay a Shopkeeper
+          </button>
+          <button class="btn-parchment" id="btnUpiDrillReceive" data-drill="receive">
+            🎁 Receive Money (Family)
+          </button>
+          <button class="btn-parchment" id="btnUpiDrillFake" data-drill="fake">
+            ⚠️ Trap: Fake Collect Request
+          </button>
+        </div>
+
+        <!-- Simulator Screen -->
+        <div class="mock-phone-screen" id="upiPhoneScreen">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================================
+         VIEW 5: KNOWLEDGE CENTRE (15 LESSONS)
+         ======================================================================= -->
+    <section id="tab-knowledge" class="view-section">
+      <div class="scrapbook-card">
+        <div class="card-heading-row">
+          <div>
+            <h2 data-i18n="kcHeaderTitle">Digital Knowledge Centre</h2>
+            <p data-i18n="kcHeaderSubtitle">15 Simple, illustrated guides for everyday smartphone use and online safety.</p>
+          </div>
+        </div>
+
+        <!-- Search Bar & Filters -->
+        <div style="margin-bottom: 20px;">
+          <input type="text" id="kcSearchInput" class="senior-number-input" style="text-align: left; width: 100%; font-size: 1.1rem; padding: 12px 16px; border: 2px solid var(--bg-aged-border); border-radius: var(--radius-md); background: #ffffff;" placeholder="Search topics (e.g. WhatsApp, UPI, Password, 1930 Helpline)...">
+        </div>
+
+        <div class="kc-lessons-list" id="kcLessonsContainer">
+          <!-- 15 illustrated lessons populated by JS -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =======================================================================
+         VIEW 6: MY PROGRESS
+         ======================================================================= -->
+    <section id="tab-progress" class="view-section">
+      <div class="scrapbook-card">
+        <div class="card-heading-row">
+          <div>
+            <h2 data-i18n="progHeaderTitle">My Learning Progress</h2>
+            <p data-i18n="progSubtitle">Every step you take makes you more confident and safe on your smartphone.</p>
+          </div>
+          <button id="btnResetAllProgress" class="btn-parchment" style="color: var(--terracotta);">
+            <span>🔄</span> <span data-i18n="btnResetProgress">Reset My Progress</span>
+          </button>
+        </div>
+
+        <!-- Stats Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0;">
+          <div class="scrapbook-card" style="text-align: center; padding: 20px; border: 2px solid var(--teal-border); background: var(--teal-light);">
+            <div style="font-size: 2.2rem; margin-bottom: 6px;">📖</div>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--teal-dark);" id="statLessons">0 / 15</div>
+            <div style="font-size: 1rem; font-weight: 700; color: var(--teal-soft);" data-i18n="progLessonsCompleted">Lessons Explored</div>
+          </div>
+
+          <div class="scrapbook-card" style="text-align: center; padding: 20px; border: 2px solid var(--antique-gold); background: var(--antique-gold-light);">
+            <div style="font-size: 2.2rem; margin-bottom: 6px;">🎮</div>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--antique-gold-dark);" id="statGames">0 / 8</div>
+            <div style="font-size: 1rem; font-weight: 700; color: var(--antique-gold-dark);" data-i18n="progGamesPlayed">Games Played</div>
+          </div>
+
+          <div class="scrapbook-card" style="text-align: center; padding: 20px; border: 2px solid var(--terracotta-border); background: var(--terracotta-light);">
+            <div style="font-size: 2.2rem; margin-bottom: 6px;">🕵️</div>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--terracotta-dark);" id="statScams">0 / 5</div>
+            <div style="font-size: 1rem; font-weight: 700; color: var(--terracotta);" data-i18n="progScamsSolved">Scams Solved</div>
+          </div>
+
+          <div class="scrapbook-card" style="text-align: center; padding: 20px; border: 2px solid #93c5fd; background: #eff6ff;">
+            <div style="font-size: 2.2rem; margin-bottom: 6px;">💳</div>
+            <div style="font-size: 2rem; font-weight: 800; color: #1e40af;" id="statUpi">0 / 3</div>
+            <div style="font-size: 1rem; font-weight: 700; color: #1e3a8a;" data-i18n="progUpiTasks">UPI Drills Completed</div>
+          </div>
+        </div>
+
+        <!-- Badges Earned Section -->
+        <h3 style="font-size: 1.35rem; margin-bottom: 14px;">🏅 Badges & Honors Earned</h3>
+        <div id="badgesContainer" style="display: flex; gap: 14px; flex-wrap: wrap;"></div>
+      </div>
+    </section>
+
+
+    <!-- =======================================================================
+         VIEW 7: HELP & HELPLINES
+         ======================================================================= -->
+    <section id="tab-help" class="view-section">
+      <div class="scrapbook-card">
+        <h2 data-i18n="helpTitle">National Digital Safety Helplines (India)</h2>
+        <p style="margin-bottom: 24px;" data-i18n="helpDesc">If you or someone in your family ever suspects digital fraud, immediately reach out to these official government resources:</p>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          
+          <div class="scrapbook-card" style="border-left: 6px solid #b91c1c; background: #fff1f2;">
+            <h3 style="color: #991b1b; font-size: 1.4rem;" data-i18n="help1930Title">National Cyber Crime Helpline: Dial 1930</h3>
+            <p style="color: #1e293b; margin-top: 6px; font-size: 1.05rem;" data-i18n="help1930Desc">
+              Available 24x7 across India for financial fraud and online complaints. Calling within the first 1–2 hours allows authorities to freeze stolen funds at the bank level!
+            </p>
+            <div style="margin-top: 12px;">
+              <a href="tel:1930" class="btn-terracotta" style="text-decoration: none;">📞 Call 1930 Now</a>
+            </div>
+          </div>
+
+          <div class="scrapbook-card" style="border-left: 6px solid var(--teal-soft);">
+            <h3 style="color: var(--teal-dark); font-size: 1.4rem;" data-i18n="helpPortalTitle">Official National Cybercrime Portal</h3>
+            <p style="color: #1e293b; margin-top: 6px; font-size: 1.05rem;">
+              File a formal report online from home, upload screenshots, and track investigation status.
+            </p>
+            <div style="margin-top: 12px;">
+              <a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer" class="btn-teal" style="text-decoration: none;">
+                🌐 Visit cybercrime.gov.in
+              </a>
+            </div>
+          </div>
+
+          <div class="scrapbook-card" style="border-left: 6px solid var(--antique-gold);">
+            <h3 style="color: var(--antique-gold-dark); font-size: 1.4rem;" data-i18n="helpSancharSaathiTitle">Sanchar Saathi (DoT, Govt of India)</h3>
+            <p style="color: #1e293b; margin-top: 6px; font-size: 1.05rem;" data-i18n="helpSancharDesc">
+              Block lost phones, trace stolen devices via CEIR, and verify how many SIM cards are registered in your name at sancharsaathi.gov.in.
+            </p>
+            <div style="margin-top: 12px;">
+              <a href="https://sancharsaathi.gov.in" target="_blank" rel="noopener noreferrer" class="btn-parchment" style="text-decoration: none;">
+                📱 Visit Sanchar Saathi Portal
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       QUESTION MODAL FOR TIC-TAC-TOE & INTERACTIVE DRILLS
+       ========================================================================= -->
+  <div class="modal-overlay" id="tttQuestionModal" role="dialog" aria-modal="true">
+    <div class="modal-box" style="max-width: 540px; background: var(--bg-paper-card); border: 3px double var(--antique-gold);">
+      <h3 style="font-size: 1.35rem; color: var(--terracotta); margin-bottom: 12px;">💡 Safety Question</h3>
+      <p id="tttQuestionText" style="font-size: 1.15rem; color: var(--ink-espresso); font-weight: 700; margin-bottom: 16px;"></p>
+      
+      <div id="tttOptionsContainer"></div>
+      <div id="tttExplanation" style="margin-top: 14px; font-size: 1rem;"></div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer" aria-live="assertive"></div>
+
+  <!-- Scripts -->
+  <script src="translations.js"></script>
+  <script src="games.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
